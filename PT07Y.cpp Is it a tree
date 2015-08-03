@@ -1,0 +1,84 @@
+//three things to check
+1)If there's a cycle or not :If yes , then it is not a tree
+2)vertices must be equal to vertices-1
+3) There should be only one connected part(i,e no disconnection)
+
+
+
+
+
+
+
+
+
+
+//JKM-----MY MOTO IS TO WRITE BEATIFUL CODES.
+#include<bits/stdc++.h>
+/*#include<iostream>#include<vector>#include<algorithm>#include<string>#include<map>#include<set>#include<list>#include<bitset>#include<cmath>#include<cstdio>#include<ctime>#include<cstdlib>#include<sstream>*/
+using namespace std;
+
+#define     ll                       long long
+#define     jkm()                    int t; scanf("%d",&t); while(t--)
+#define     vi                       vector<int>
+#define     vs                       vector<string>
+#define     mp(a,b)                  make_pair(a,b)
+#define     pb(a)                    push_back(a)
+#define     sorta(v)                 sort(v.begin(), v.end())
+#define     sortd(v)                 sort(v.begin(), v.end(), greater<int>())     //here it is int...PLease change into required data type
+#define     si(n)                    scanf("%d",&n)
+#define     sll(n)                   scanf("%lld",&n)
+#define     ps                       printf(" ")
+#define     pn                       printf("\n")
+#define     id(n)                    scanf("%f",&n)
+#define     ss(n)                    scanf("%s",&n)
+#define     pi(n)                    printf("%d\n", n)
+#define     pll(n)                   printf("%lld\n", n)
+#define     all(v)                   v.begin(),v.end()
+#define     l(a)                     a.length()
+#define     sz(a)                    a.size()
+#define     rep(i,n)                  for(int i=0;i<n;i++)
+#define     fr(i,a,b)                for(int i=(a);i<=(b);i++)
+#define     frd(i,a,b)               for(int i=(a);i>=(b);i--)
+#define     debug(x)                 cout << '>' << #x << ':' << x << endl;
+template< class T > T gcd(T a, T b) { return (b != 0 ? gcd<T>(b, a%b) : a); }
+template< class T > T lcm(T a, T b) { return (a / gcd<T>(a, b) * b);}
+
+
+
+bool visited[100005]; //dfs to check numbers of connected parts
+std::vector<int > adj[100005];
+void dfs(int v){
+if(visited[v]==1) return;
+visited[v]=1;
+for(std::vector<int>::iterator it=adj[v].begin();it!=adj[v].end();it++){
+if(!visited[*it]) dfs(*it);
+}
+}
+
+
+int main(){
+ll n,m,x,y; sll(n); sll(m);
+ll a[100005];
+memset(a,0,sizeof(a));
+memset(visited,0,sizeof(visited));
+for(int i=0;i<n;i++) adj[i].clear();
+rep(i,m) {cin>>x>>y; a[y]++; //checks cycle, if a[i]>1 then it means a cycle
+adj[x].pb(y);
+adj[y].pb(x);
+}
+ll p=0,q=0;
+fr(i,1,n){
+if(a[i]>1) p++;
+else if(a[i]==0) q++;
+}
+ll c=0;
+fr(i,1,n){
+    if(!visited[i]){
+        c++;
+        dfs(i);
+    }
+}
+if(p==0 && q==1 && (n-1==m) && c==1) cout<<"YES";
+else cout<<"NO";
+return 0;
+}
