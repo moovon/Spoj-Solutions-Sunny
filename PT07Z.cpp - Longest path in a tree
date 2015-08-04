@@ -1,0 +1,70 @@
+/*double dfs
+one from root to deepest node
+and the next dfs from the deepest node
+can be solved by bfs also
+*/
+//JKM-----MY MOTO IS TO WRITE BEATIFUL CODES.
+#include<bits/stdc++.h>
+/*#include<iostream>#include<vector>#include<algorithm>#include<string>#include<map>#include<set>#include<list>#include<bitset>#include<cmath>#include<cstdio>#include<ctime>#include<cstdlib>#include<sstream>*/
+using namespace std;
+
+#define     ll                       long long
+#define     jkm()                    int t; scanf("%d",&t); while(t--)
+#define     vi                       vector<int>
+#define     vs                       vector<string>
+#define     mp(a,b)                  make_pair(a,b)
+#define     pb(a)                    push_back(a)
+#define     sorta(v)                 sort(v.begin(), v.end())
+#define     sortd(v)                 sort(v.begin(), v.end(), greater<int>())     //here it is int...PLease change into required data type
+#define     si(n)                    scanf("%d",&n)
+#define     sll(n)                   scanf("%lld",&n)
+#define     ps                       printf(" ")
+#define     pn                       printf("\n")
+#define     id(n)                    scanf("%f",&n)
+#define     ss(n)                    scanf("%s",&n)
+#define     pi(n)                    printf("%d\n", n)
+#define     pll(n)                   printf("%lld\n", n)
+#define     all(v)                   v.begin(),v.end()
+#define     l(a)                     a.length()
+#define     sz(a)                    a.size()
+#define     rep(i,n)                  for(int i=0;i<n;i++)
+#define     fr(i,a,b)                for(int i=(a);i<=(b);i++)
+#define     frd(i,a,b)               for(int i=(a);i>=(b);i--)
+#define     debug(x)                 cout << '>' << #x << ':' << x << endl;
+template< class T > T gcd(T a, T b) { return (b != 0 ? gcd<T>(b, a%b) : a); }
+template< class T > T lcm(T a, T b) { return (a / gcd<T>(a, b) * b);}
+
+ll maxi,last;
+bool visited[100005];
+std::vector<int > adj[100005];
+void dfs(int v,int len){
+if(visited[v]==1) return;
+visited[v]=1;
+if(len>maxi){
+    maxi=len;
+    last=v;
+}
+for(std::vector<int>::iterator it=adj[v].begin();it!=adj[v].end();it++){
+if(!visited[*it]) {dfs(*it,len+1); }
+}
+}
+
+
+int main(){
+ll n,x,y; sll(n);
+for(int i=0;i<n;i++) adj[i].clear();
+memset(visited,0,sizeof(visited));
+rep(i,n-1){
+    cin>>x>>y;
+    adj[x].push_back(y);
+    adj[y].push_back(x);
+}
+maxi=-1;
+dfs(1,0);
+
+memset(visited,0,sizeof(visited));
+maxi=-1;
+dfs(last,0);
+pll(maxi);
+return 0;
+}
