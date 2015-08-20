@@ -1,0 +1,56 @@
+//JKM-----MY MOTO IS TO WRITE BEATIFUL CODES.
+#include<bits/stdc++.h>
+/*#include<iostream>#include<vector>#include<algorithm>#include<string>#include<map>#include<set>#include<list>#include<bitset>#include<cmath>#include<cstdio>#include<ctime>#include<cstdlib>#include<sstream>*/
+using namespace std;
+
+#define     ll                       long long
+#define     jkm()                    int t; scanf("%d",&t); while(t--)
+#define     vi                       vector<int>
+#define     vs                       vector<string>
+#define     mp(a,b)                  make_pair(a,b)
+#define     pb(a)                    push_back(a)
+#define     sorta(v)                 sort(v.begin(), v.end())
+#define     sortd(v)                 sort(v.begin(), v.end(), greater<int>())     //here it is int...PLease change into required data type
+#define     si(n)                    scanf("%d",&n)
+#define     sll(n)                   scanf("%lld",&n)
+#define     ps                       printf(" ")
+#define     pn                       printf("\n")
+#define     id(n)                    scanf("%f",&n)
+#define     ss(n)                    scanf("%s",&n)
+#define     pi(n)                    printf("%d\n", n)
+#define     pll(n)                   printf("%lld\n", n)
+#define     all(v)                   v.begin(),v.end()
+#define     l(a)                     a.length()
+#define     sz(a)                    a.size()
+#define     rep(i,n)                  for(int i=0;i<n;i++)
+#define     fr(i,a,b)                for(int i=(a);i<=(b);i++)
+#define     frd(i,a,b)               for(int i=(a);i>=(b);i--)
+#define     debug(x)                 cout << '>' << #x << ':' << x << endl;
+template< class T > T gcd(T a, T b) { return (b != 0 ? gcd<T>(b, a%b) : a); }
+template< class T > T lcm(T a, T b) { return (a / gcd<T>(a, b) * b);}
+//int b = atoi(a.c_str());
+
+bool isNumber(string line) 
+{
+   rep(i,line.length()){
+   	if(!isdigit(line[i])) return false;
+   }
+   return true;
+}
+
+int main(){
+jkm(){
+ll x; sll(x); ll a[x]; rep(i,x) cin>>a[i];
+ll y; sll(y); ll b[y]; rep(i,y) cin>>b[i];
+ll mini=9999999,f=0;
+for(int i=0;i<x;i++){
+	if(f) break;
+	for(int j=0;j<y;j++){
+		mini=min(mini, abs(a[i]-b[j]));
+		if(mini==0) {break;f=1;}
+	}
+}
+pll(mini);
+}
+return 0;
+}
