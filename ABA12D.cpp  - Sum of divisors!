@@ -1,0 +1,39 @@
+//JKM-----MY MOTO IS TO WRITE BEATIFUL CODES.
+#include<bits/stdc++.h>
+/*#include<iostream>#include<vector>#include<algorithm>#include<string>#include<map>#include<set>#include<list>#include<bitset>#include<cmath>#include<cstdio>#include<ctime>#include<cstdlib>#include<sstream>*/
+using namespace std;
+
+#define     ll                       long long
+#define     jkm()                    int t; scanf("%d",&t); while(t--)
+#define     vi                       vector<int>
+#define     vs                       vector<string>
+#define     mp(a,b)                  make_pair(a,b)
+#define     pb(a)                    push_back(a)
+#define     sorta(v)                 sort(v.begin(), v.end())
+#define     sortd(v)                 sort(v.begin(), v.end(), greater<int>())     //here it is int...PLease change into required data type
+#define     si(n)                    scanf("%d",&n)
+#define     sll(n)                   scanf("%lld",&n)
+#define     ps                       printf(" ")
+#define     pn                       printf("\n")
+#define     id(n)                    scanf("%f",&n)
+#define     ss(n)                    scanf("%s",&n)
+#define     pi(n)                    printf("%d\n", n)
+#define     pll(n)                    printf("%lld\n", n)
+#define     all(v)                   v.begin(),v.end()
+#define     l(a)                     a.length()
+#define     sz(a)                    a.size()
+
+
+int monk[]={2,4,9,16,25,64,289,729,1681,2401,3481,4096,5041,7921,10201,15625,17161,27889,28561,29929,65536,83521,85849,146689,262144,279841,458329,491401,531441,552049,579121,597529,683929,703921,707281,734449,829921};
+int main(){
+jkm(){
+	ll monksk=0;
+ll a,b; sll(a); sll(b);
+for(int i=0;i<37;i++){
+if(a<=monk[i] && monk[i]<=b)
+	monksk++;
+}
+pll(monksk);
+}
+return 0;
+}

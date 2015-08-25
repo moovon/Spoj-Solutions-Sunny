@@ -1,0 +1,10 @@
+def reverse(num):
+    return int(str(num)[::-1])
+t=int(raw_input())
+while t>0:
+    a,b=map(int,raw_input().split());
+    a=reverse(a)
+    b=reverse(b)
+    c=a+b
+    print reverse(c)
+    t=t-1
